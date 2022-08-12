@@ -6,9 +6,11 @@
 		<item value="bitbucket.org"/>
 	</list>
 	<list key="CommitDialog.authorValues">
+		<item value="hyeong-jun-98 &lt;bellehee98@naver.com&gt;"/>
 		<item value="SL &lt;SL@DESKTOP-F5MD56P&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="hyeong-jun-98 &lt;bellehee98@naver.com&gt;"/>
 		<item value="SL &lt;SL@DESKTOP-F5MD56P&gt;"/>
 	</list>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
