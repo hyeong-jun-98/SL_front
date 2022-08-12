@@ -1,0 +1,40 @@
+package com.aca.web0810_1.gui;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+// 웹 기반이 아닌 독립 실행형 기반의 GUI 모드로 등록폼을 정의하자.
+public class FormWin extends JFrame {
+	JTextField t_title, t_writer;
+	JTextArea area;
+	JButton bt; // has a 관계 : 객체가 다른 객체를 멤버로 보유한 관계
+
+	public FormWin() {
+		
+		t_title = new JTextField(17);
+		t_writer = new JTextField(17);
+		area = new JTextArea(10,15);  
+		
+		//div 대신 레이아웃 스타일 적용
+		this.setLayout(new FlowLayout());  // 일렬로 배치되는 레이아웃
+		add(t_title);
+		add(t_writer);
+		add(area);
+		
+		
+		setSize(300, 400);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE); // 윈도우 창을 닫을 때 프로그램도 같이 종료.
+
+	}
+
+	public static void main(String[] args) {
+
+		new FormWin();
+
+	}
+}

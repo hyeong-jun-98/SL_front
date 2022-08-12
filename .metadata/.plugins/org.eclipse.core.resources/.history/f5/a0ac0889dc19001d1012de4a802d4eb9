@@ -1,0 +1,55 @@
+package javaseapp.thread;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+
+public class ProgressApp extends JFrame {
+	JProgressBar bar;
+	JButton bt;
+	int n = 0;
+
+	public ProgressApp() {
+		bar = new JProgressBar();
+		bt = new JButton("download");
+
+		// 스타일
+		bar.setPreferredSize(new Dimension(380, 50));
+
+		// 배치 관리자 적용
+		setLayout(new FlowLayout());
+
+		// 조립
+		add(bar);
+		add(bt);
+
+		setSize(400, 300);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		bt.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addValue();
+			}
+		});
+	}
+
+	public void addValue() {
+		bar.setValue(n);
+
+	}
+
+	// 자바는 쓰레드 기반의 언어이다. 우리가 쓰레드를 정의하지 않더라도 기본적으로 이령 프로그램의 실행부라고 불리는 단위가
+	// 바로 메인 쓰레드였더ㅏ. 특히 이 메인 쓰레드는 개발자가 정의할 수 있는 쓰레드가 아닌 시스ㅜ템에서 이미 지원하는 특별한 쓰레드이다.
+	public static void main(String[] args) {
+
+		new ProgressApp();
+	}
+}

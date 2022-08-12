@@ -1,0 +1,52 @@
+package javaseapp.thread;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Gallery extends JFrame{
+	JPanel p_controller;
+	MyCanvas p_content;
+	JButton bt_prev, bt_next, bt_auto;
+	
+	public Gallery() {
+
+		p_controller = new JPanel();
+		p_content = new MyCanvas();
+		bt_prev = new JButton("이전");
+		bt_next =  new JButton("다음");
+		bt_auto =  new JButton("auto");
+		
+		
+		p_controller.setPreferredSize(new Dimension(600, 50));
+		p_controller.setBackground(Color.orange);
+		p_content.setPreferredSize(new Dimension(600, 500));
+		p_content.setBackground(Color.black);
+		
+		setLayout(new FlowLayout());
+		
+		p_controller.add(bt_prev);
+		p_controller.add(bt_next);
+		p_controller.add(bt_auto);
+		
+		add(p_controller);
+		add(p_content);
+
+		setLocationRelativeTo(null);  		// 화면 가운데로 윈도우 창 
+		setSize(600, 550);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		new Gallery();
+	}
+	
+}

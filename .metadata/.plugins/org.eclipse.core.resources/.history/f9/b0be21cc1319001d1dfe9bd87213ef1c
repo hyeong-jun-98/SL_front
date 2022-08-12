@@ -1,0 +1,68 @@
+package javaseapp;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class ListTest  extends JFrame{
+	
+	JButton bt_create, bt_color;
+	
+	
+	
+	
+	public ListTest() {
+		bt_create = new JButton ("버튼 생성");
+		bt_color = new JButton ("색상적용");
+		
+		setLayout(new FlowLayout());			// 화면 생성
+		add(bt_create);
+		add(bt_color);		// 추가
+		
+		setSize(300, 400);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);		// 닫을 때 프로그램도 종료된다..
+		// 이벤트 연결 코드는 1회성이므로, 즉 .java로 만들 실익이 없다. 따라서 내부 익명 클래스로 가자.
+		
+		bt_create.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 종적으로 버튼 생성하기
+				createBtn();
+				
+			
+				
+			}
+		});
+		
+		bt_color.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				
+				
+			}
+		});
+		
+		
+		
+	}
+	public void createBtn() {
+		JButton bt = new JButton("버튼 1");
+		add(bt);
+		
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+		new ListTest();
+	}
+	
+}

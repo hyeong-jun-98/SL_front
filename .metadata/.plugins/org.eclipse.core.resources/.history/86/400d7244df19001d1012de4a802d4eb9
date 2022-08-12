@@ -1,0 +1,31 @@
+package javaseapp.thread;
+
+import javax.swing.JProgressBar;
+
+// ProgressBar를 증가시킬 스레드 정의
+
+public class MyThread extends Thread {
+	JProgressBar bar, bar2, bar3;
+	int n = 0;
+
+	public MyThread(JProgressBar bar) {
+		this.bar = bar;
+	}
+
+	// 개발자는 스레드 정의 시 원하는 로직을 run 메서드에 작성한다.
+	public void run() {
+		while (true) {
+			n++;
+			bar.setValue(n);
+			bar2.setValue(n);
+			bar3.setValue(n);
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

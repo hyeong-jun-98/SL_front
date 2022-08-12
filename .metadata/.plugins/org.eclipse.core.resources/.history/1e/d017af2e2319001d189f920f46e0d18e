@@ -1,0 +1,14 @@
+package javaseapp.thread;
+
+
+// 별을 출력하는 쓰레드 정의
+public class Star extends Thread{
+	
+	public void run() {
+		System.out.println("*");
+	}
+	
+	
+	
+	
+}

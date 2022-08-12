@@ -1,0 +1,50 @@
+package com.aca.web0810_1.notice;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.aca.web0810_1.model.BoardManager;
+
+public class WriteController extends HttpServlet {
+	BoardManager boardManager;
+
+	// 이 서블릿 클래스가 최초의 접속자에 의해 인스턴스화 될 때 딱 한 번 호출되는 생명주기 메서드
+	@Override
+	public void init() throws ServletException {
+		boardManager = new BoardManager();
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		// 클라이언트가 전송해 온 파라미터 받기
+		request.setCharacterEncoding("utf-8");
+		String title = request.getParameter("title");
+		String writer = request.getParameter("writer");
+		String content = request.getParameter("content");
+
+		// 넘어온 파랕미터를 이용하여 DB에 insert하여 직접이 아닌 중립적 객체를 이용할 것이다.
+		int result = boardManager.insert(title, writer, content);
+
+		out.print("<script>");
+		if (result == 0) {
+			out.print("alert('등록실패');");
+			out.print("history.back();");
+		} else {
+			out.print("alert('등록성공');");
+			out.print("location.href='/notice/list.jsp';");
+		}
+		out.print("</script>");
+
+	}
+
+}

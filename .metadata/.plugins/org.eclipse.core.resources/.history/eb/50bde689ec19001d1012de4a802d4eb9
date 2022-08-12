@@ -1,0 +1,101 @@
+package javaseapp.thread;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+public class Gallery extends JFrame {
+	JPanel p_controller;
+	JPanel p_content;
+	JButton bt_prev, bt_next, bt_auto;
+	Image image; // 자바에서 이미지를 표현한 객체이고, 이미지 인스턴스를 얻는 방법은 상당히 다양하다.
+	URL url;
+
+	public Gallery() {
+
+		p_controller = new JPanel();
+		p_content = new JPanel() {
+
+			@Override
+			public void paint(Graphics g) {
+				System.out.println("내가 주도해서 그리고 있다.");
+
+				g.drawImage(image, 0, 0, 600, 500, p_controller);
+			}
+
+		};
+		bt_prev = new JButton("이전");
+		bt_next = new JButton("다음");
+		bt_auto = new JButton("auto");
+
+		p_controller.setPreferredSize(new Dimension(600, 50));
+		p_controller.setBackground(Color.orange);
+		p_content.setPreferredSize(new Dimension(600, 500));
+		p_content.setBackground(Color.black);
+
+		setLayout(new FlowLayout());
+
+		p_controller.add(bt_prev);
+		p_controller.add(bt_next);
+		p_controller.add(bt_auto);
+
+		add(p_controller);
+		add(p_content);
+
+		setLocationRelativeTo(null); // 화면 가운데로 윈도우 창
+		setSize(600, 550);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+		loadImage();
+
+	}
+
+	public void loadImage() {
+		// URL url = this.getClass().getResource("/javaseapp/res/data.json");
+
+		File file = new File("C:/Users/SL/eclipse-workspace/javaseapp/data/data.json");
+		try {
+			FileReader reader = new FileReader(file);
+			JSONParser jsonParser = new JSONParser();
+			
+			// String문서로 존재했던 json파일을 읽어들여 JSON 객체화 시킨 것
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);  
+			
+		} catch (IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+//		try {
+//			url = new URL("https://images-na.ssl-images-amazon.com/images/I/91qvAndeVYL._RI_.jpg");
+//			image = ImageIO.read(url);
+//		} catch (MalformedURLException e) {
+//			
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+	}
+
+	public static void main(String[] args) {
+		new Gallery();
+	}
+
+}

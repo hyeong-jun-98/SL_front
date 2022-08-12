@@ -1,0 +1,40 @@
+package com.aca.web0810_1.notice;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class RegistServlet  extends HttpServlet{
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 클라이언트가 전송해 온 파라미터 받기
+		request.setCharacterEncoding("utf-8");
+		String title = request.getParameter("title");
+		String writer = request.getParameter("writer");
+		String content = request.getParameter("content");
+		
+		// 사실 접속이라는 행위는 내부적으로 상당히 많은 절차와 인증을 거쳐야 하는 어려운 작업이다.
+		// 이 시점부터는 절대로 자바 클래스 안에 추후 변경이 가능성이 큰 자원의 정보는 기재하지 않는다 (하드코딩 금지.)
+		// 검색을 담당하는 검색객체 생성
+		try {
+			InitialContext ctx = new InitialContext();
+			ctx.lookup("jdbc/myoracle"); 		// 매개변수로 검색어를 대입한다.
+		} catch (NamingException e) {
+			
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+	}
+}

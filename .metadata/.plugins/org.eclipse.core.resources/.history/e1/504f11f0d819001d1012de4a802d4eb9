@@ -1,0 +1,23 @@
+package javaseapp.thread;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+
+public class ProgressApp extends JFrame {
+	JProgressBar bar;
+	JButton bt;
+	
+	public ProgressApp() {
+		bar = new JProgressBar();
+		bt = new JButton("download");
+		
+		setSize(400,300);
+		setVisible(true);
+		
+	}
+	
+	public static void main(String[] args) {
+		new ProgressApp();
+	}
+}

@@ -1,0 +1,37 @@
+package javaseapp.thread;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+
+public class ProgressApp extends JFrame {
+	JProgressBar bar;
+	JButton bt;
+	
+	public ProgressApp() {
+		bar = new JProgressBar();
+		bt = new JButton("download");
+		
+		// 스타일
+		bar.setPreferredSize(new Dimension(380, 50));
+		
+		// 배치 관리자 적용
+		setLayout(new FlowLayout());
+		
+		//조립
+		add(bar);
+		add(bt);
+		
+		
+		setSize(400,300);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new ProgressApp();
+	}
+}

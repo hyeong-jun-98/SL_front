@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="utf-8"%>
+    
+    <%String board_id = request.getParameter("board_id");
+    out.print("board is : " + board_id);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    %>

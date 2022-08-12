@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>구글맵을 연동한 SPA(Single Page Application)</title>
+<script>
+
+
+</script>
+<style>
+	#wrapper {
+		width:1800px;
+		height:800px;
+		background:yellow;
+		margin:auto;		
+		overflow:hidden;
+	}
+	
+	#input-area {
+	
+		width:200px;
+		height:100%;
+		background:pink;
+		float:left
+	}
+	
+	#map {
+	
+		width:1600px;
+		height:100%;
+		background:gray;
+		float:left
+	}
+
+
+</style>
+
+</head>
+<body>
+ <div id = "wrapper">
+	<div id = "input-area">입력폼</div>
+	<div id = "map">맵</div>
+	
+</div>
+
+</body>
+</html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe4HBkzPGFbfZ7onU-DfUAslX_6NfRfBQ&callback=myMap"></script>

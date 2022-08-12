@@ -1,0 +1,33 @@
+package javaseapp.thread;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JProgressBar;
+
+public class ProgressApp extends JFrame {
+	JProgressBar bar;
+	JButton bt;
+	
+	public ProgressApp() {
+		bar = new JProgressBar();
+		bt = new JButton("download");
+		
+		
+		
+		// 배치 관리자 적용
+		setLayout(new FlowLayout());
+		
+		//조립
+		add(bar);
+		add(bt);
+		
+		
+		setSize(400,300);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new ProgressApp();
+	}
+}

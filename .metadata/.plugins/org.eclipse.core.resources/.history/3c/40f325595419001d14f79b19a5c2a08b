@@ -1,0 +1,23 @@
+<%@page import="com.aca.web0810_1.domain.Board"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+    <%request.setCharacterEncoding("utf-8"); %>
+   <jsp:useBean id="board" class ="com.aca.web0810_1.domain.Board"/>
+    <jsp:setProperty property="*" name="board"/>
+    
+    
+    <%
+    
+    out.print(board.getTitle());
+    
+    // 넘겨받은 파라미터를 이용하여 DB에 update (BoardDAO)
+    // update board set title=?, writer=?, content=?, where board_id=?'
+    
+    		
+    		
+    
+    
+    
+    
+    
+    %>

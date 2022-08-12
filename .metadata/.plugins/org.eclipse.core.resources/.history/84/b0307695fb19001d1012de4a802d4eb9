@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script>
+function loadData() {
+	location.href = "/test/data.jsp";
+}
+
+	window.addEventListener("load", function () {
+		document.querySelector("button").addEventListener("click", function() {
+			loadData();
+			
+		})
+		
+	})
+
+</script>
+
+</head>
+<body>
+
+
+<Button>불러오기</Button>
+<textarea style="width:200px;height:150px"></textarea>
+</body>
+</html>
