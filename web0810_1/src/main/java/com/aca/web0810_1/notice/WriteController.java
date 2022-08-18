@@ -20,7 +20,7 @@ public class WriteController extends HttpServlet {
 		boardManager = new BoardDAO();
 
 	}
-
+//
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
