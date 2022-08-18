@@ -9,7 +9,7 @@
     
     <%
     
-    	
+    	//
     
     // 넘겨받은 파라미터를 이용하여 DB에 update (BoardDAO)
     // update board set title=?, writer=?, content=?, where board_id=?'
