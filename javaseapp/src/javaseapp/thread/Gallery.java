@@ -68,7 +68,7 @@ public class Gallery extends JFrame {
 
 		
 
-	}
+	}//
 
 	public void loadImage() {
 		// URL url = this.getClass().getResource("/javaseapp/res/data.json");
