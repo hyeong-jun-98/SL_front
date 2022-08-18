@@ -9,7 +9,7 @@ BoardDAO boardDAO = new BoardDAO();
 List<Board> boardList= boardDAO.selectAll();
 
 
-
+//
 %>
 
 <!DOCTYPE html>
