@@ -9,7 +9,7 @@ public class MyThread extends Thread {
 	int n = 0;
 	int n2 = 0;
 	int n3 = 0;
-
+//
 	public MyThread(JProgressBar bar, JProgressBar bar2, JProgressBar bar3) {
 		this.bar = bar;
 		this.bar2 = bar2;
