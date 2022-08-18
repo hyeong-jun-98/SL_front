@@ -3,6 +3,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
+//
 <%!
    String url="jdbc:oracle:thin:@localhost:1521:XE";
    String user="java";
