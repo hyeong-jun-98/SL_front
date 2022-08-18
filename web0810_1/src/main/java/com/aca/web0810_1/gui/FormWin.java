@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 import com.aca.web0810_1.domain.Board;
 import com.aca.web0810_1.model.BoardDAO;
-
+//
 // 웹 기반이 아닌 독립 실행형 기반의 GUI 모드로 등록폼을 정의하자.
 public class FormWin extends JFrame {
 	JTextField t_title, t_writer;
