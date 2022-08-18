@@ -8,7 +8,7 @@ public class Star extends Thread{
 	public Star(String mark) {
 		this.mark = mark;
 	}
-	
+	//
 	public void run() {
 		while(true) {
 		System.out.println(mark);
