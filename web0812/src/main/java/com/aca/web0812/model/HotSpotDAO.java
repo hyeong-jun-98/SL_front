@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.aca.web0812.domain.HotSpot;
-
+//
 // 오직 hotspot 테이블에 대한 CRUD를 담당하는 DAO객체
 public class HotSpotDAO {
 	String url = "jdbc:mysql://localhost:3306/javastudy?useUnicode=true&characterEncoding=utf8";
