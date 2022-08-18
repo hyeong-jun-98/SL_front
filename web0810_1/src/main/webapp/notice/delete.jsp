@@ -5,7 +5,7 @@
     
     <%
     
-   
+   //
     String board_id = request.getParameter("board_id");
     out.print("board is : " + board_id);
     
