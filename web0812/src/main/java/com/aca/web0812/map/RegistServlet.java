@@ -34,7 +34,7 @@ public class RegistServlet extends HttpServlet {
 		String content = req.getParameter("content");
 		HotSpot hotSpot = new HotSpot();
 
-		int result = hotSpotDAO.insert(hotSpot);
+		//int result = hotSpotDAO.insert(hotSpot);
 		// 4개의 파라미터를 하나로 모아서 전달할 DTO 생성
 
 		hotSpot.setLati(Float.parseFloat(lati));
@@ -42,7 +42,7 @@ public class RegistServlet extends HttpServlet {
 		hotSpot.setIcon(icon);
 		hotSpot.setContent(content);
 
-		hotSpotDAO.insert(hotSpot);
+		int result = hotSpotDAO.insert(hotSpot);	// pk 값
 
 		System.out.println(lati);
 		System.out.println(longi);
@@ -68,9 +68,19 @@ public class RegistServlet extends HttpServlet {
 			resData += " \"msg\" : \"데이터 등록 실패\"";
 			resData += "}";
 		} else {
+			// else 인 경우 한 건이 들어간 경우이므로 바로 데이터를 반환해준다.
+			HotSpot dto = hotSpotDAO.select(result);
 			resData = "{";
 			resData += " \"code\":1,";
-			resData += " \"msg\" : \"데이터 등록 성공\"";
+			resData += "\"list\" : [";
+			resData += "{";
+			resData +=" \"hotspot\" :"+dto.getHotspot_id()+",";
+			resData +=" \"lati\" :"+dto.getLati()+",";
+			resData +=" \"longi\" :"+dto.getLongi()+",";
+			resData +=" \"icon\" :\""+dto.getIcon()+"\",";
+			resData +=" \"content\" :\""+dto.getContent()+"\"";
+			resData +="}";
+			resData +="]";
 			resData += "}";
 		}
 		out.print(resData);
