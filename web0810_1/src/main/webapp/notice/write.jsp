@@ -42,6 +42,7 @@ function regist() {
 	form1.action = "/notice/regist";
 	form1.method = "post";
 	form1.submit();
+    //
 }
 
 

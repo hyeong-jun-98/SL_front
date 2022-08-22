@@ -28,6 +28,7 @@ pstmt = con.prepareStatement(sql);
 pstmt.setString(1, user_id);
 pstmt.setString(2, pass);
 rs = pstmt.executeQuery();
+//
 
 String sid = session.getId();
 out.print("당신이 할당받은 세션 아이디 : " + sid + "<br>");

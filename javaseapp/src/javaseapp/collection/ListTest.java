@@ -55,7 +55,7 @@ public class ListTest extends JFrame {
 		});
 
 	}
-
+//
 	public void createBtn() {
 		JButton bt = new JButton("버튼 1");
 		p.add(bt); // 패널에 버튼 추가

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aca.web0810_1.domain.Board;
-
+//
 // 이 클래스는 웹 기반뿐만 아니라 스탠다드 기반에서도 공용으로 쓸 수 있는 수준으로 정의해놓자
 /*
  * 재사용을 위하

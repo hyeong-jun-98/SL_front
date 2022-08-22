@@ -22,7 +22,7 @@
  */
  $(document).ready(function(){  //window.addEventListener("load", fuinction(){})
     $('#summernote').summernote();
-    
+    //
     //JQuery로 글 등록 버튼에 이벤트 구현
     $("#bt_regist").click(function(){
        //폼 양식을 이용하여 서버에 전송

@@ -17,6 +17,7 @@
    PreparedStatement pstmt = con.prepareStatement(sql);  //준비
    ResultSet rs = pstmt.executeQuery();  //select문 수행
 %>
+//
 <!DOCTYPE html>
 <html>
 <head>

@@ -14,7 +14,7 @@ public class ProgressApp extends JFrame {
 	JButton bt;
 	MyThread myThread;
 
-	public ProgressApp() {
+	public ProgressApp() {//
 		bar = new JProgressBar();
 		bar2 = new JProgressBar();
 		bar3 = new JProgressBar();
