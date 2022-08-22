@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -67,8 +69,36 @@ public class Gallery extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 		
+		//다음 버튼에 대한 이벤트 구현
+		bt_next.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				next();
+				
+				
+			}
+		});
 
-	}//
+	}
+	
+	//프로그램에서 사용할 데이터 가져오기
+	public void init() {
+		// 지금 json 데이터는 파일로 존재한다. 따라서 실행중인 자바 프로그램에서 문서파일을 읽어야 하므로
+		// 지금 필요한 기술은 입력 스트림이 필요하다.
+		// 1) 방향 : 모든 스트립은 데이터의 처리방향에 따라 입 출력..
+		// 2) 다루는 데이터 : 바이트기반, 분자기반, 버퍼처리..
+		// 
+		
+	}
+	
+	
+	
+	// 다음 사진 나오게
+	public void next() {
+		
+	}
+	
 
 	public void loadImage() {
 		// URL url = this.getClass().getResource("/javaseapp/res/data.json");
