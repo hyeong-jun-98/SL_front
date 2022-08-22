@@ -44,7 +44,7 @@
 
             document.getElementById("icon").addEventListener("change", function () {       // select 상자에 이벤트 구현
                 console.log(this.value);
-                document.getElementById("preview").src = "./images/" + this.value;      // 문서내의 preview라는 이미지 돔의 src를 교체
+                document.getElementById("preview").src = "/res/images/" + this.value;      // 문서내의 preview라는 이미지 돔의 src를 교체
             })
 
             document.querySelector("button").addEventListener("click", function () {
