@@ -58,7 +58,7 @@ input[type=button]:hover {
 
 <div class="container">
 
-  <form>
+  <form name ="form1">
     <input type="text"  name="title" placeholder="제목">
     <input type="text"  name="writer" placeholder="기자명">
     <textarea  name="content" placeholder="내용 작성" style="height:200px"></textarea>
