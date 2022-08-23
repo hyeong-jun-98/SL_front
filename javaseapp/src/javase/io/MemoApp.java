@@ -2,6 +2,7 @@ package javase.io;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,6 +25,8 @@ public class MemoApp extends JFrame { // 문자기반 스트림을 이용하여 
 	JScrollPane scroll;
 	JFileChooser chooser; // 탐색기
 	FileReader reader; // 문자기반 스트림 (한글이 깨지면 안되기 때문에 문자기반을 사용한다.)
+
+	BufferedReader br;
 
 	public MemoApp() {
 		super("메모장");
@@ -81,16 +84,24 @@ public class MemoApp extends JFrame { // 문자기반 스트림을 이용하여 
 			File file = chooser.getSelectedFile();
 			try {
 				reader = new FileReader(file);
+				br = new BufferedReader(reader); // 버퍼로 파일 리더를 감싼다.
 
 				// 한 문자 읽기
-				int data = -1;
+				// int data = -1;
+				String data = null;
 
 				while (true) {
-					data = reader.read();
-					if(data == -1) {
+					/* 문자 기반
+					 * data = reader.read(); if(data == -1) { break; }
+					 * content.append(Character.toString((char) data)); // char 형으로 바꿔준 후 다시 그걸 문자열로
+					 * 변환. }
+					 */
+
+					data = br.readLine();
+					if (data == null) {
 						break;
 					}
-					content.append(Character.toString((char) data));		// char 형으로 바꿔준 후 다시 그걸 문자열로 변환.
+					content.append(data + "\n"); // 버퍼리더에 \n 표시가 없기 때문에 넣어주어야 가독성 향상
 				}
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
@@ -98,6 +109,16 @@ public class MemoApp extends JFrame { // 문자기반 스트림을 이용하여 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} finally {
+				if (br != null) {
+					try {
+						br.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
+				}
 			}
 
 		}
