@@ -7,9 +7,16 @@ public class News {
 	private String content;
 	private String regdate;
 	private int hit;
+	private int cnt;
 	
 	
 	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public int getNews_id() {
 		return news_id;
 	}
