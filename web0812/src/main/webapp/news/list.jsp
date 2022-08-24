@@ -1,11 +1,21 @@
+<%@page import="com.aca.web0812.domain.News"%>
+<%@page import="java.util.List"%>
+<%@page import="com.aca.web0812.news.model.NewsDAO"%>
+<%!
+	NewsDAO newsDAO  = new NewsDAO();
+	
 
+%>
 <%
-int totalRecord = 26; // 모든 레코드 수
+List<News> newsList = newsDAO.selectAll();
+int totalRecord = newsList.size(); // 모든 레코드 수
 int pageSize = 10; // 한페이지에 보여줄 레코드 수
 int totalPage = (int) Math.ceil((float) totalRecord / pageSize); // 페이지 정하는 수
 int blockSize = 10;
-
 int currentPage = 1;
+
+
+
 
 if (request.getParameter("currentPage") != null) {
 	currentPage = Integer.parseInt(request.getParameter("currentPage")); // 현재 페이지  ()
@@ -15,8 +25,8 @@ int firstPage= (currentPage - (currentPage - 1))  + (blockSize * ((currentPage -
 
 int lastPage = firstPage + (blockSize -1);
 
-
-int num = totalRecord - pageSize * (currentPage - 1);		// 페이지 당 시작 번호 1 page 26, 2 page 16
+int curPos = (currentPage-1) * pageSize;		// 페이지 당 List의 시작 index
+int num = totalRecord - curPos;		// 페이지 당 시작 번호 1 page 26, 2 page 16
 
 %>
 <%="totalRecord : " + totalRecord + "<br>"%>
@@ -73,13 +83,19 @@ tr:nth-child(even) {
 			<th width="5%">조회수</th>
 		</tr>
 		<%for (int i = 1; i <= pageSize; i++) {%>
+		
 		<%if(num<1) break; %>
+		<%
+			News news = newsList.get(curPos++);
+		
+		%>
+		
 		<tr>
 			<td><%=num-- %></td>
-			<td>Smith</td>
-			<td>50</td>
-			<td>50</td>
-			<td>50</td>
+			<td><a href = "/news/content.jsp?news_id=<%=news.getNews_id()%>"><%= news.getTitle()%></a></td>
+			<td><%= news.getWriter()%></td>
+			<td><%= news.getRegdate().substring(0,16)%></td>
+			<td><%= news.getHit()%></td>
 		</tr>
 		<%
 		}
