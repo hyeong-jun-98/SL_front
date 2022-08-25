@@ -162,11 +162,12 @@ function showCommentsListByDom(jsonArray) {
 	}
 	// 비동기 방식으로 댓글 목록 가져오기
 function getComments() {
+		
 	$.ajax({
 		url:"/comments/list?news_id=<%=news_id%>",
 		success:function(result) {	// result = responseText
 			alert(result);
-			showCommentsListbyDom(result);
+			showCommentsListByDom(result);
 		}
 	});
 	
@@ -180,6 +181,7 @@ function del() {
 	
 
 function init() {
+	
 	getComments();
 	
 	
@@ -189,7 +191,7 @@ function init() {
 
 </script>
 </head>
-<body onLoad()="init()">
+<body onLoad="init()">
 
 <h3>뉴스기사 상세보기</h3>
 

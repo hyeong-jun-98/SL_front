@@ -24,6 +24,7 @@ public class CommentsList extends HttpServlet {
 		Gson gson = new Gson();
 		String json = gson.toJson(commentsList);
 	
+		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(json);
 	
