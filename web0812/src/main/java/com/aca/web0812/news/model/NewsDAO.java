@@ -56,12 +56,20 @@ public class NewsDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<News> list = new ArrayList<News>();
-
 		con = manager.getConnection();
-		String sql = "select * from news order by news_id desc";
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("SELECT news_id, TITLE ,writer, regdate, HIT , COUNT(nid) as cnt from");
+		sb.append("(");
+		sb.append(
+				"SELECT n.news_id as news_id, TITLE ,writer, regdate, HIT, c.news_id AS nid FROM news n LEFT OUTer JOIN COMMENTS c ON n.NEWS_ID  = c.NEWS_ID");
+		sb.append(") GROUP BY news_id, title, WRITER , REGDATE , HIT");
+
+		// 스트링은 일단 메모리 상에 생성된 스트링은 ㅜ절대 수정이 붕가능하기 때문이다
+		// Srring을 대상으로 누적시키거나 반복문을 돌릴경우 성능에 문제가 발새안다.
 
 		try {
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement(sb.toString());
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -69,9 +77,9 @@ public class NewsDAO {
 				news.setNews_id(rs.getInt("news_id"));
 				news.setTitle(rs.getString("title"));
 				news.setWriter(rs.getString("writer"));
-				news.setContent(rs.getString("content"));
 				news.setRegdate(rs.getString("regdate"));
 				news.setHit(rs.getInt("hit"));
+				news.setCnt(rs.getInt("cnt"));
 
 				list.add(news);
 			}
@@ -90,17 +98,17 @@ public class NewsDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		News news =null;
-		
+		News news = null;
+
 		con = manager.getConnection();
 		String sql = "select * from news where news_id = ?";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, news_id);
 			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
+
+			if (rs.next()) {
 				news = new News();
 				news.setNews_id(rs.getInt("news_id"));
 				news.setTitle(rs.getString("title"));
@@ -109,7 +117,7 @@ public class NewsDAO {
 				news.setRegdate(rs.getString("regdate"));
 				news.setHit(rs.getInt("hit"));
 			}
-			
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -118,7 +126,6 @@ public class NewsDAO {
 		}
 		return news;
 
-
 	}
 
 	public void update() {
@@ -126,8 +133,42 @@ public class NewsDAO {
 
 	}
 
-	public void delete() {
-		String sql = "delete from news where news_id=?";
+	public int delete(int news_id) {
+		// 자식이 있는지 조회한다.
+
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+
+		con = manager.getConnection();
+		String sql = "select * from comments where news_id=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, news_id);
+			rs = pstmt.executeQuery();
+
+			// 자식이 있다면
+			if (rs.next()) {
+				sql = "update news set title='원본이 삭제된 게시물입니다.', writer='', content='냉무', where news_id=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, news_id);
+				result = pstmt.executeUpdate();
+			} else {
+				sql = "delete from news where news_id=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, news_id);
+				result = pstmt.executeUpdate();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.freeConnection(con, pstmt, rs);
+		}
+		
+		return result;
 
 	}
 
