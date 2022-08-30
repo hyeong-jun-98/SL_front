@@ -47,7 +47,7 @@ public List selectAll() {
 		
 	}
 	
-	// 삭제하기
+	// 삭제하기 
 	public int delete(int board_id) {
 		SqlSession sqlSession = configManager.getSqlSession();
 		int result = 0;
