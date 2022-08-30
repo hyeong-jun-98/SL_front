@@ -17,7 +17,7 @@ public class DeleteServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+//
 		int board_id = Integer.parseInt(request.getParameter("board_id"));
 
 		request.setCharacterEncoding("utf-8");
