@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.academy.web0829.board.repository.BoardDAO;
 import com.academy.web0829.domain.Board;
-
+//
 public class RegistServlet  extends HttpServlet{
 	BoardDAO boardDAO = new BoardDAO();
 	
