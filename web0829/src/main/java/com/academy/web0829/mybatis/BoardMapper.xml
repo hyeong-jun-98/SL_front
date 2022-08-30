@@ -6,6 +6,7 @@
 	앞으로 쿼리문은 java 클래스 안에 두지말고 mybatis 안 xml에 작성하다
 	지금까지 DAO에 작성했던 상투적이고 거창했던 jdbc코드를 사용하는게 아니라 
 	개발자가 쿼리문에 집중할 수 있고 유지보수 성을 올리기 위해 sql Mapper 중 하나인 mybatis 프레임 워크를 이용한다. (Hibernate와 mybatis와는 약간의 차이가 있다.)
+	s
  -->
  <insert id="insert" parameterType="Board">
  	insert into board(title, writer, content) values (#{title}, #{writer}, #{content})
