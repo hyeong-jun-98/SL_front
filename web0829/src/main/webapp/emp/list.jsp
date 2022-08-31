@@ -5,7 +5,7 @@
     pageEncoding="EUC-KR"%>
     <%! EmpDAO empDAO = new EmpDAO(); %>
     <%
-    List <Emp>empList = empDAO.selectAll();
+    List <Emp>empList = empDAO.selectAll();		// empDAO에 담긴 List 형태의 selectAll 메서드 가져와서 empList에 담기
     %>
 <!DOCTYPE html>
 <html>
@@ -31,7 +31,7 @@
 		</tr>
 		<%for(int i = 0; i < empList.size(); i++) { %>
 		
-		<% Emp emp = empList.get(i);%>
+		<% Emp emp = empList.get(i);%>		<!--  empList에 담긴 데이터를 반복해서 가져오고 추출 -->
 		
 		<tr>
 		<td><%=emp.getEmpno() %></td>

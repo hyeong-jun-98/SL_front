@@ -10,7 +10,9 @@ public class EmpDAO {
 
 	ConfigManager manager = ConfigManager.getInstance();
 
-	public List selectAll() {
+	
+	public List selectAll() {			// EmpMapper의 selectAll 쿼리문을 List 형태로 가져오기 
+		
 		SqlSession sqlSession = manager.getSqlSession();
 		List list = null;
 		list = sqlSession.selectList("Emp.selectAll");
