@@ -3,6 +3,7 @@ package com.academy.model2app.movie.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.academy.model2app.controller.Controller;
 import com.academy.model2app.movie.model.MovieManager;
 
 /*
@@ -11,7 +12,7 @@ import com.academy.model2app.movie.model.MovieManager;
  * */
 
 	
-public class MovieController {
+public class MovieController implements Controller{
 	
 	MovieManager manager = new MovieManager();
 
@@ -23,11 +24,14 @@ public class MovieController {
 		
 		// 4. 결과 저장.
 		request.setAttribute("data", msg);
-		
-		
-		
-		
-		
+
 		
 	}
+	
+	// 형님 컨트롤러가 어떤 뷰 페이지를 보여줘야 할 지를 여기서 결정하자.
+	public String getViewPage() {
+		
+		return "/movie/result.jsp";
+	}
+	
 }
