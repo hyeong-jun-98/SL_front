@@ -1,14 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page contentType="text/html; charset=utf-8"
+   %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <script>
 function getResult() {
 	var form = document.querySelector("form");
-	form.action = "/blood";
+	form.action = "/blood.do";
 	form.method="post";
 	form.submit();
 	
@@ -19,14 +19,14 @@ function getResult() {
 <body>
 	<form>
 		<select name ="blood">
-			<option>´ç½ÅÀÇ Ç÷¾×ÇüÀ» ¼±ÅÃÇÏ½Ã¿À.</option>
-			<option value="A">AÇü</option>
-			<option value="B">BÇü</option>		
-			<option value="O">OÇü</option>		
-			<option value="AB">ABÇü</option>
+			<option>ë‹¹ì‹ ì˜ í˜ˆì•¡í˜•ì„ ì„ íƒí•˜ì‹œì˜¤.</option>
+			<option value="A">Aí˜•</option>
+			<option value="B">Bí˜•</option>		
+			<option value="O">Oí˜•</option>		
+			<option value="AB">ABí˜•</option>
 		</select>
 	</form>
-		<button onClick="getResult()">°á°ú º¸±â</button>
+		<button onClick="getResult()">ê²°ê³¼ ë³´ê¸°</button>
 	
 </body>
 </html>

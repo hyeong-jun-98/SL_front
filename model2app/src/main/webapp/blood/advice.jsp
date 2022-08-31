@@ -4,12 +4,12 @@
     <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="urf-8">
 <title>Insert title here</title>
 </head>
 <body>
 <%
-	String msg = (String) session.getAttribute("data");
+	String msg = (String) request.getAttribute("data");
 
 
 %>
