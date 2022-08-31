@@ -4,8 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.academy.model2app.blood.model.BloodManager;
+import com.academy.model2app.controller.Controller;
 
-public class BloodController {
+public class BloodController implements Controller{
 	
 	BloodManager manager = new BloodManager();
 	
@@ -19,6 +20,11 @@ public class BloodController {
 		request.setAttribute("data", msg);
 		
 		
+	}
+	
+	public String getViewPage() {
+		
+		return "/blood/advice.jsp";
 	}
 
 }
