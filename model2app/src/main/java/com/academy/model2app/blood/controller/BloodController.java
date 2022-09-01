@@ -22,9 +22,9 @@ public class BloodController implements Controller{
 		
 	}
 	
-	public String getViewPage() {
+	public String getViewName() {
 		
-		return "/blood/advice.jsp";
+		return "/blood/result";
 	}
 
 }
