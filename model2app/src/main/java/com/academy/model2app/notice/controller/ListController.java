@@ -14,8 +14,7 @@ public class ListController implements Controller {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		List noticeList = noticeDAO.selectAll();
-		
-		
+
 		// 4단계 결과페이지로 가져갈 것이 있을 때는 결과를 저장해 놓는다. (DispatchServlet에게 전달하기 위해...)
 		request.setAttribute("noticeList", noticeList);
 		
