@@ -14,5 +14,25 @@
 		<property name="pan" ref="friPan"/>
 	</bean>
 	
+	<!-- 윈도우 창과 그 재료들을 엮여본다. -->
+	<bean id="jTextArea" class="javax.swing.JTextArea">
+		<constructor-arg index="0" value="20"></constructor-arg>
+		<constructor-arg index="1" value="15"></constructor-arg>
+	</bean>
+	
+	<bean id="jButton" class="javax.swing.JButton">
+		<constructor-arg type="String" value="나버튼"></constructor-arg>
+	</bean>
+	
+	<bean id="jTextField" class="javax.swing.JTextField">
+		<constructor-arg value="20" type="int"></constructor-arg>
+	</bean>
+	
+	<!-- MyWin과 그 재료들을 weaving -->
+	<bean id="myWin" class="com.academy.SpringBasicApp.gui.MyWin">
+		<property name="area" ref="jTextArea"></property>
+		<property name="bt" ref="jButton"></property>
+		<property name="t_input" ref="jTextField"></property>
+	</bean>
 	
 </beans>

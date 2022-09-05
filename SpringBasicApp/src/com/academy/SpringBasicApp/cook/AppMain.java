@@ -2,6 +2,8 @@ package com.academy.SpringBasicApp.cook;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.academy.SpringBasicApp.gui.MyWin;
+
 public class AppMain {
 	
 	public static void main(String[] args) {
@@ -24,6 +26,10 @@ public class AppMain {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("app/config/context.xml");
 		Chef chef = (Chef) context.getBean("chef");		// 새롭게 린스터스를 생성하지 않고 이미 컨테이너ㅏ 생성된 bean을 얻어오기
 		chef.cook();
+		
+		MyWin myWin = (MyWin)context.getBean("myWin");
+		myWin.init();
+		
 		
 	}
 
